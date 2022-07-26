@@ -13,9 +13,11 @@ import {
 import { db } from "../../firebase";
 import { getAuth } from "firebase/auth";
 
-const ChatWindow = ({ closeChatWindow }) => {
+const ChatWindow = ({ which, closeChatWindow }) => {
   const auth = getAuth();
   const user = auth.currentUser;
+  const type =
+    which === "adoption" ? "adoption_messages" : "volunteers_messages";
 
   const [value, setValue] = React.useState("");
 
@@ -31,7 +33,7 @@ const ChatWindow = ({ closeChatWindow }) => {
 
   async function sendMessage(user, text) {
     try {
-      await addDoc(collection(db, "adoption_messages"), {
+      await addDoc(collection(db, type), {
         uid: user.uid,
         displayName: user.displayName,
         text: text.trim(),
@@ -44,7 +46,7 @@ const ChatWindow = ({ closeChatWindow }) => {
 
   function getMessages(callback) {
     return onSnapshot(
-      query(collection(db, "adoption_messages"), orderBy("timestamp", "asc")),
+      query(collection(db, type), orderBy("timestamp", "asc")),
       (querySnapshot) => {
         const messages = querySnapshot.docs.map((doc) => ({
           id: doc.id,

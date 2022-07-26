@@ -6,6 +6,7 @@ import ChatWindow from "../../../components/ChatWindow/ChatWindow";
 import { Button } from "@material-ui/core";
 
 const AdoptAdoption = () => {
+
   const [pets, setPets] = useState(null);
   const fetchPetsData = async () => {
     const querySnapshot = await getDocs(collection(db, "adoption_pets"));
@@ -46,7 +47,10 @@ const AdoptAdoption = () => {
         )}
       </div>
       {chatOpen ? (
-        <ChatWindow closeChatWindow={() => setChatOpen(false)} />
+        <ChatWindow
+          which="adoption"
+          closeChatWindow={() => setChatOpen(false)}
+        />
       ) : (
         <div></div>
       )}
