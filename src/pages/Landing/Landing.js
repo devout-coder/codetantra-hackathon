@@ -4,6 +4,7 @@ import "./Landing.css";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Loading from "../../components/Loading/Loading";
 import { firebaseApp } from "../../firebase";
+import { collection, doc, setDoc } from "firebase/firestore";
 
 const provider = new GoogleAuthProvider();
 
@@ -23,7 +24,7 @@ function Landing() {
         const user = result.user;
         console.log(user);
         setLoading(false);
-        navigate("/home");
+        navigate("/adoption/putup");
       })
       .catch((error) => {
         // Handle Errors here.

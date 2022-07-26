@@ -2,18 +2,19 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing/Landing";
 import Home from "./pages/Home/Home";
-import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar whichActive={"none"} />
-      {/* <Router>
+      <Router>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
+          <Route index element={<Landing />} />
+          <Route path="adoption" element={<Adoption />}>
+            <Route path="putup" element={<PutUpAdoption />} />
+            <Route path="adopt" element={<AdoptAdoption />} />
+          </Route>
         </Routes>
-      </Router> */}
+      </Router>
     </div>
   );
 }
