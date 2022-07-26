@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2020"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strictFunctionTypes": false,
+    "target": "esnext",
+    "strict": false,
+    "isolatedModules": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "paths": {
+      "~artifacts/*": ["src/artifacts/*"],
+      "~hooks/*": ["src/hooks/*"],
+      "~consts/*": ["src/consts/*"],
+      "~layout/*": ["src/layout/*"],
+      "~utils/*": ["src/utils/*"],
+      "~contexts/*": ["src/contexts/*"],
+      "~components/*": ["src/components/*"],
+      "~styles/*": ["src/styles/*"],
+      "~svg/*": ["src/svg/*"],
+      "~testSetup/*": ["testSetup/*"],
+      "~interfaces/*": ["src/interfaces/*"],
+      "global": ["src/styles/global"],
+      "~/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "cypress", "public"],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "next-env.d.ts",
+    "src/pages/api/geo/index.js",
+    "testSetup/*.{ts, js}"
+  ]
+}

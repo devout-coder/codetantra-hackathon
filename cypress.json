@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "experimentalFetchPolyfill": true,
+  "reporter": "mocha-junit-reporter",
+  "reporterOptions": {
+    "mochaFile": "cypress/reports/junit/junit.xml",
+    "testsuitesTitle": false
+  }
+}
