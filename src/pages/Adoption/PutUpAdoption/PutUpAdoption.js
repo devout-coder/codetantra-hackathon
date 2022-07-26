@@ -8,19 +8,26 @@ import {
 import React, { useState } from "react";
 import * as geofire from "geofire-common";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../../firebase";
 import Filebase from "react-file-base64";
+import { db } from "../../../firebase";
 
 const PutUpAdoption = () => {
-  const lat = 51.5074;
-  const lng = 0.1278;
-  const hash = geofire.geohashForLocation([lat, lng]);
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+
+  function showPosition(position) {
+    let demoArr = [];
+    demoArr.push(position.coords.latitude);
+    demoArr.push(position.coords.longitude);
+    console.log(demoArr);
+    return demoArr;
+  }
 
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
   const [age, setAge] = useState(0);
   const [breed, setBreed] = useState("");
-  const [location, setLocation] = useState(hash);
   const [isFemale, setIsFemale] = useState(true);
   const [photo, setPhoto] = useState(null);
 
@@ -31,7 +38,7 @@ const PutUpAdoption = () => {
         owner: owner,
         age: age,
         breed: breed,
-        location: location,
+        location: getLocation(),
         gender: isFemale ? "female" : "male",
         photo: photo,
       });
