@@ -1,0 +1,8 @@
+.shopInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.shopName {
+  color: black;
+}

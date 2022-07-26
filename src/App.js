@@ -6,6 +6,7 @@ import PutUpAdoption from "./pages/Adoption/PutUpAdoption/PutUpAdoption";
 import AdoptAdoption from "./pages/Adoption/AdoptAdoption/AdoptAdoption";
 import ApplyVolunteer from "./pages/ApplyVolunteer/ApplyVolunteer";
 import FindVolunteer from "./pages/FindVolunteer/FindVolunteer";
+import PetProducts from "./pages/PetProducts/PetProducts";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </Route>
           <Route path="applyVolunteer" element={<ApplyVolunteer />} />
           <Route path="findVolunteer" element={<FindVolunteer />} />
+          <Route path="petProducts" element={<PetProducts />} />
         </Routes>
       </Router>
     </div>

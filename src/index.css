@@ -4,8 +4,8 @@ html {
   --color-gray: hsl(210, 3%, 25%);
   --color-white: white;
   --border-radius: 5px;
-  background-color: var(--color-background);
-  color: var(--color-white);
+  /* background-color: var(--color-background);
+  color: var(--color-white); */
 }
 
 body {
