@@ -5,21 +5,24 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-import React, { useState } from "react";
 import * as geofire from "geofire-common";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../firebase";
 import Filebase from "react-file-base64";
+
+import { useRef, useState } from "react";
+import Heading1 from "../../../components/Heading1/Heading1";
+import InputField from "../../../components/InputField/InputField";
 
 const PutUpAdoption = () => {
   const lat = 51.5074;
   const lng = 0.1278;
   const hash = geofire.geohashForLocation([lat, lng]);
 
-  const [name, setName] = useState("");
-  const [owner, setOwner] = useState("");
-  const [age, setAge] = useState(0);
-  const [breed, setBreed] = useState("");
+  const [name, setname] = useState("");
+  const [owner, setowner] = useState("");
+  const [age, setage] = useState("");
+  const [breed, setbreed] = useState("");
   const [location, setLocation] = useState(hash);
   const [isFemale, setIsFemale] = useState(true);
   const [photo, setPhoto] = useState(null);
@@ -42,44 +45,41 @@ const PutUpAdoption = () => {
   };
 
   return (
-    <div className="putup-adoption-form">
-      <text>pet name</text>
-      <div className="putup-adoption-form">
-        <div className="field">
-          <div className="fieldName">Pet name</div>
-          <input
-            type={"text"}
-            value={name}
-            spellCheck="false"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="field">
-          <div className="fieldName">Age</div>
-          <input
-            type={"number"}
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
-        </div>
-        <div className="field">
-          <div className="fieldName">Pet Breed</div>
-          <input
-            type={"text"}
-            value={breed}
-            spellCheck="false"
-            onChange={(e) => setBreed(e.target.value)}
-          />
-        </div>
-        <div className="field">
-          <div className="fieldName">Owner</div>
-          <input
-            type={"text"}
-            value={owner}
-            spellCheck="false"
-            onChange={(e) => setOwner(e.target.value)}
-          />
-        </div>
+    <div className={`offWhiteBg superContainer`}>
+      <div className="formContainer">
+        <Heading1 title={"Adopt"} />
+        <p
+          style={{
+            marginBottom: "2rem",
+          }}
+          className="pTextSmall"
+        >
+          Fill the following form to apply for adoption
+        </p>
+        <InputField
+          ph={"Name"}
+          labelRef={useRef(null)}
+          setPostData={setname}
+          postData={name}
+        />
+        <InputField
+          ph={"Age"}
+          labelRef={useRef(null)}
+          setPostData={setage}
+          postData={age}
+        />
+        <InputField
+          ph={"Breed"}
+          labelRef={useRef(null)}
+          setPostData={setbreed}
+          postData={breed}
+        />
+        <InputField
+          ph={"Owner Name"}
+          labelRef={useRef(null)}
+          setPostData={setowner}
+          postData={owner}
+        />
         <text>Female</text>
         <Radio
           checked={isFemale}
@@ -99,9 +99,7 @@ const PutUpAdoption = () => {
         <Filebase
           type="file"
           multiple={false}
-          onDone={(
-            { base64 } //I was missing the curly brackets which was the issue
-          ) => setPhoto({ ...photo, selectedFile: base64 })}
+          onDone={({ base64 }) => setPhoto({ ...photo, selectedFile: base64 })}
         />
         <button className="loginButton" onClick={putupForAdoption}>
           Put up for Adoption
