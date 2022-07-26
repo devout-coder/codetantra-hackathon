@@ -127,25 +127,9 @@ const Navbar = ({ whichActive }) => {
                 // whichActive != "join_us" ? styles.test : styles.text__underlined
               }
             >
-              DONATE
+              <button>DONATE</button>
             </a>
           </div>
-        </div>
-        <div className="navbar__smallScreen__freeDemoClass dropShadow">
-          {/* <img className="callNow__icon" src={phone_call.src} alt="" /> */}
-          {/* <Link href="tel:+8975803664"> */}
-          <a className="callNow__text">
-            <p
-              style={{
-                width: "max-content",
-
-                color: "white",
-              }}
-            >
-              call now
-            </p>
-          </a>
-          {/* </Link> */}
         </div>
 
         <div className="navbar__menuContainer">
