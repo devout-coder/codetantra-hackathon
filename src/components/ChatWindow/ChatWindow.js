@@ -86,12 +86,22 @@ const ChatWindow = ({ which, closeChatWindow }) => {
   }
 
   return (
-    <div className="chatBackground">
+    <div className="chatBackground dropShadow">
       <div className="chat">
-        <text>chat window</text>
-        <IconButton onClick={close}>
-          <Close />
-        </IconButton>
+        <div>
+          <p className="pTextSmall">Chat Window</p>
+          <IconButton
+            onClick={close}
+            style={{
+              position: "absolute",
+              top: 10,
+              right: 10,
+            }}
+          >
+            <Close />
+          </IconButton>
+        </div>
+
         <div className="message-list-container" ref={containerRef}>
           <ul className="message-list">
             {messages.map((x) => (
@@ -104,7 +114,11 @@ const ChatWindow = ({ which, closeChatWindow }) => {
           </ul>
         </div>
         <div className="messageCont">
-          <form onSubmit={handleSubmit} className="message-input-container">
+          <form
+            onSubmit={handleSubmit}
+            className="message-input-container flexCenter"
+            style={{ flexDirection: "row" }}
+          >
             <input
               type="text"
               placeholder="Enter a message"
@@ -114,7 +128,7 @@ const ChatWindow = ({ which, closeChatWindow }) => {
               required
               minLength={1}
             />
-            <button type="submit" disabled={value < 1} className="send-message">
+            <button type="submit" disabled={value < 1}>
               Send
             </button>
           </form>

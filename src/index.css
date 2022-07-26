@@ -29,6 +29,7 @@ code {
   --dropShadowLight: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.15));
   --primaryColor: #038373;
   --secondaryColor: #00cc8e;
+  --tertiaryColor: #80e6c7;
   ---offWhite: #f6f6f6;
   --blackAlternate: #333;
   --smallBorderRadius: 0.75rem;
@@ -734,4 +735,25 @@ Location card ka size here. */
 
 .loginButton {
   margin-top: -2.5rem;
+}
+
+.adoptAdopt__petsCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.adoptAdopt__petsCard {
+  margin: 0.5rem;
+  width: 250px;
+  height: 250px;
+  filter: var(--dropShadowLight);
+  position: relative;
+  scale: 0.8;
+}
+
+.adoptAdopt__petsCard_top {
+  background: var(--primaryColor);
 }
