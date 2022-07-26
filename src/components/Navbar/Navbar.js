@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className="navbar">
       <ul>
         <li>
-          <a class="active" href="#home">
+          <a class="active" href="#adoption">
             Adoption
           </a>
         </li>
