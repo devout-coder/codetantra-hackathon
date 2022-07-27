@@ -89,7 +89,14 @@ const ChatWindow = ({ which, closeChatWindow }) => {
     <div className="chatBackground dropShadow">
       <div className="chat">
         <div>
-          <p className="pTextSmall">Chat Window</p>
+          <p
+            className="pTextSmall"
+            style={{
+              padding: "0.5rem 0",
+            }}
+          >
+            Pranil Chitre
+          </p>
           <IconButton
             onClick={close}
             style={{

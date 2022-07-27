@@ -4,6 +4,7 @@ html {
   --color-gray: hsl(210, 3%, 25%);
   --color-white: white;
   --border-radius: 5px;
+
   /* background-color: var(--color-background); */
   /* color: var(--color-white); */
 }
@@ -24,6 +25,8 @@ code {
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 :root {
   --dropShadow: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.25));
   --dropShadowLight: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.15));
@@ -33,6 +36,7 @@ code {
   ---offWhite: #f6f6f6;
   --blackAlternate: #333;
   --smallBorderRadius: 0.75rem;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -69,8 +73,9 @@ a {
 
 .h1Text {
   font-size: 30pt;
-  font-family: "Source Serif Pro", serif;
-  font-weight: 300;
+  /* font-family: "Source Serif Pro", serif; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   color: var(--blackAlternate);
 }
 

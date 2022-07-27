@@ -3,12 +3,15 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
 import Loading from "../../../components/Loading/Loading";
 import ChatWindow from "../../../components/ChatWindow/ChatWindow";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import Heading1 from "../../../components/Heading1/Heading1";
 // import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export const PetsCard = ({ onclick, pet }) => {
+import { Button, IconButton } from "@material-ui/core";
+import { Chat } from "@material-ui/icons";
+
+export const PetsCard = ({ onclick, pet, setChatOpen }) => {
   let navigate = useNavigate();
   return (
     <div
@@ -27,6 +30,12 @@ export const PetsCard = ({ onclick, pet }) => {
         }}
       >
         <p> {pet.name}</p>
+        <div className="flexCenter" style={{ flexDirection: "row" }}>
+          <IconButton onClick={() => setChatOpen(true)}>
+            <Chat />
+          </IconButton>
+          <p style={{ marginRight: "1rem" }}>Contact Owner</p>
+        </div>
       </div>
 
       <div
@@ -118,7 +127,11 @@ const AdoptAdoption = () => {
         >
           {pets != null ? (
             pets.map((each) => (
-              <PetsCard pet={each} onclick={() => setChatOpen(true)} />
+              <PetsCard
+                setChatOpen={setChatOpen}
+                pet={each}
+                onclick={() => setChatOpen(true)}
+              />
             ))
           ) : (
             <Loading />

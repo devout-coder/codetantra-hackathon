@@ -9,8 +9,10 @@ import Loading from "../../components/Loading/Loading";
 import Navbar from "../../components/Navbar/Navbar";
 import { db } from "../../firebase";
 import "./ApplyVolunteer.css";
+import { useNavigate } from "react-router-dom";
 
 const ApplyVolunteer = () => {
+  let navigate = useNavigate();
   const [volunteers, setVolunteers] = useState(null);
 
   const fetchVolunteersData = async () => {
@@ -37,9 +39,22 @@ const ApplyVolunteer = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar whichActive={"VOLUNTEERING"} />
       <div className={`offWhiteBg superContainer`}>
         <div className="formContainer">
+          <div className="services__subTabsContainer flexCenter">
+            <div className={`services__subTab__active services__subTab`}>
+              <p>Volunteer for Pet Care Jobs</p>
+            </div>
+            <div
+              onClick={() => {
+                navigate("/findVolunteer");
+              }}
+              className={`services__subTab`}
+            >
+              <p>Find Volunteers</p>
+            </div>
+          </div>
           <Heading1 title={"Volunteer for Pet Care Jobs"} />
           {/* // <div className="applyVolunteerContainer">
     //   <Navbar />

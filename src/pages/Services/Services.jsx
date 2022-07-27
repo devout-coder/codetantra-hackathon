@@ -37,7 +37,7 @@ const Services = () => {
   const [selectedTab, setselectedTab] = useState("vet");
   return (
     <div>
-      <Navbar />
+      <Navbar whichActive={"services"} />
       <div className="superContainer offWhiteBg">
         <div className="mainContainer">
           <div className="services__subTabsContainer flexCenter">
@@ -83,13 +83,20 @@ const Services = () => {
                 }
                 number={"+91 343 5345 XXX"}
               />
-              <LocDetailsCard />
+              <LocDetailsCard
+                name={"Petie"}
+                dist={"0.4"}
+                add={
+                  "Chandansar Park, Opp Andheri Recreation Club, Andheri West, Mumbai - 400058, Near Azad Nagar Metro Station"
+                }
+                number={"+91 678 5345 XXX"}
+              />
             </div>
           ) : (
             <div>
               <Heading1 title={"Medical Shops"} />
               <LocDetailsCard
-                name={"SuperPets"}
+                name={"Dog Medicine"}
                 dist={"0.7"}
                 add={
                   "Chaman Commercial, Opp Andheri Recreation Club, Andheri West, Mumbai - 400058, Near Azad Nagar Metro Station"

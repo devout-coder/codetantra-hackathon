@@ -8,8 +8,10 @@ import Filebase from "react-file-base64";
 import { getAuth } from "firebase/auth";
 import InputField from "../../components/InputField/InputField";
 import Heading1 from "../../components/Heading1/Heading1";
+import { useNavigate } from "react-router-dom";
 
 const FindVolunteer = () => {
+  let navigate = useNavigate();
   const auth = getAuth();
   const user = auth.currentUser;
   const [name, setName] = useState("");
@@ -43,17 +45,31 @@ const FindVolunteer = () => {
   };
   return (
     <div>
-      <Navbar />
+      <Navbar whichActive={"VOLUNTEERING"} />
       <div className={`offWhiteBg superContainer`}>
         <div className="formContainer">
-          <Heading1 title={"Adopt"} />
+          <div className="services__subTabsContainer flexCenter">
+            <div
+              onClick={() => {
+                navigate("/applyVolunteer");
+              }}
+              className={` services__subTab`}
+            >
+              <p>Volunteer for Pet Care Jobs</p>
+            </div>
+            <div className={`services__subTab services__subTab__active`}>
+              <p>Find Volunteers</p>
+            </div>
+          </div>
+          <Heading1 title={"Find Volunteers"} />
           <p
             style={{
               marginBottom: "2rem",
             }}
             className="pTextSmall"
           >
-            Fill the following form to find volunteers for your pets
+            Fill in the details of the pet's needs to find volunteers for the
+            same
           </p>
 
           {/* <Link to="/findVolunteer">Find Volunteer</Link>

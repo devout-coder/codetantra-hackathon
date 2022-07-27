@@ -5,6 +5,7 @@ import { BiX } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import { gsap, Power3 } from "gsap";
 import { Link } from "react-router-dom";
+import { logo } from "../../assets";
 
 const Navbar = ({ whichActive }) => {
   const [shouldShow, setshouldShow] = useState(false);
@@ -40,6 +41,22 @@ const Navbar = ({ whichActive }) => {
       }}
     >
       <div>
+        <a>
+          <Link to="/">
+            <img
+              className="navbar__pit_logo"
+              src={logo}
+              style={{
+                height: "100%",
+                padding: "1rem",
+                // margin: "0 0 0 10rem"
+                marginLeft: "8vw",
+              }}
+            />
+          </Link>
+        </a>
+      </div>
+      <div>
         {/* <Link href="/"> */}
         <a>
           <div
@@ -74,7 +91,9 @@ const Navbar = ({ whichActive }) => {
             {/* <Link to="results"> */}
             <a
               className={
-                whichActive != "results" ? styles.test : styles.text__underlined
+                whichActive != "petProducts"
+                  ? styles.test
+                  : styles.text__underlined
               }
             >
               <Link to="/petProducts">PET PRODUCTS</Link>
@@ -84,7 +103,9 @@ const Navbar = ({ whichActive }) => {
             {/* <Link href="/courses"> */}
             <a
               className={
-                whichActive != "courses" ? styles.test : styles.text__underlined
+                whichActive != "services"
+                  ? styles.test
+                  : styles.text__underlined
               }
             >
               <Link to="/services">SERVICES</Link>
@@ -93,9 +114,7 @@ const Navbar = ({ whichActive }) => {
             {/* <Link href="/contact-us"> */}
             <a
               className={
-                whichActive != "contactus"
-                  ? styles.test
-                  : styles.text__underlined
+                whichActive != "adopt" ? styles.test : styles.text__underlined
               }
             >
               <Link to="/adoption/adopt">ADOPTION</Link>
@@ -104,7 +123,9 @@ const Navbar = ({ whichActive }) => {
             {/* <Link href="/join-us"> */}
             <a
               className={
-                whichActive != "join_us" ? styles.test : styles.text__underlined
+                whichActive != "VOLUNTEERING"
+                  ? styles.test
+                  : styles.text__underlined
               }
             >
               <Link to="/applyVolunteer">VOLUNTEERING</Link>

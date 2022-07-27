@@ -6,7 +6,7 @@ import "./Adoption.css";
 function Adoption() {
   return (
     <div className="home-container">
-      <Navbar />
+      <Navbar whichActive={"adopt"} />
       <Link to="putup">Put up for adoption</Link>
       <Link to="adopt">Adopt</Link>
       <Outlet />
