@@ -142,30 +142,26 @@ const AdoptAdoption = () => {
           ))} */}
         </div>
 
-        {/* <div className="pets-adoption-container">
-          <div className="pets-adoption-list">
-            {pets != null ? (
-              <div>
-                {pets.map((each) => (
-                  <div>
-                    <PetsCard />
-                    <Button onClick={() => setChatOpen(true)}>
-                      {each.name}
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <Loading />
-            )}
-          </div>
-          {chatOpen ? (
-            <ChatWindow
-              which="adoption"
-              closeChatWindow={() => setChatOpen(false)}
-            />
+        {chatOpen ? (
+          <ChatWindow
+            which="adoption"
+            closeChatWindow={() => setChatOpen(false)}
+          />
+        ) : (
+          <div></div>
+        )}
+        {/* <div className="pets-adoption-list">
+          {pets != null ? (
+            <div>
+              {pets.map((each) => (
+                <div>
+                  <PetsCard />
+                  <Button onClick={() => setChatOpen(true)}>{each.name}</Button>
+                </div>
+              ))}
+            </div>
           ) : (
-            <div></div>
+            <Loading />
           )}
         </div> */}
       </div>
