@@ -56,6 +56,13 @@ const Services = () => {
               <p>Veterinarians</p>
             </div>
             <div
+              onClick={() => {
+                let temp = selectedTab != "vet" ? "vet" : "med";
+                setselectedTab(temp);
+
+                console.log(selectedTab);
+                console.log("selected");
+              }}
               className={`services__subTab ${
                 selectedTab != "vet" ? "services__subTab__active" : ""
               }`}
@@ -80,7 +87,7 @@ const Services = () => {
             </div>
           ) : (
             <div>
-              <Heading1 title={"The Poster"} />
+              <Heading1 title={"Medical Shops"} />
               <LocDetailsCard
                 name={"SuperPets"}
                 dist={"0.7"}

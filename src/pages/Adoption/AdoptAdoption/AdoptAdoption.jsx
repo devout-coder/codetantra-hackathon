@@ -5,8 +5,11 @@ import Loading from "../../../components/Loading/Loading";
 import ChatWindow from "../../../components/ChatWindow/ChatWindow";
 import { Button } from "@material-ui/core";
 import Heading1 from "../../../components/Heading1/Heading1";
+// import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const PetsCard = ({ onclick, pet }) => {
+  let navigate = useNavigate();
   return (
     <div
       className="adoptAdopt__petsCard roundCorner dropShadow"
@@ -37,7 +40,11 @@ export const PetsCard = ({ onclick, pet }) => {
         }}
       >
         <img
-          src={pet.photo}
+          src={
+            pet.photo.selectedFile != undefined
+              ? pet.photo.selectedFile
+              : pet.photo
+          }
           alt=""
           style={{
             objectFit: "cover",
@@ -45,12 +52,22 @@ export const PetsCard = ({ onclick, pet }) => {
             width: "100%",
           }}
         />
+        {/* <img
+          src={pet.photo}
+          alt=""
+          style={{
+            objectFit: "cover",
+            height: "100%",
+            width: "100%",
+          }}
+        /> */}
       </div>
     </div>
   );
 };
 
 const AdoptAdoption = () => {
+  let navigate = useNavigate();
   const [pets, setPets] = useState(null);
   const fetchPetsData = async () => {
     const querySnapshot = await getDocs(collection(db, "adoption_pets"));
@@ -80,6 +97,20 @@ const AdoptAdoption = () => {
   return (
     <div className={`offWhiteBg superContainer`}>
       <div className="mainContainer">
+        <div className="services__subTabsContainer flexCenter">
+          <div className={`services__subTab__active services__subTab`}>
+            <p>Adopt</p>
+          </div>
+          <div
+            onClick={() => {
+              navigate("/adoption/putup");
+            }}
+            className={`services__subTab`}
+          >
+            <p>Post for Adoption</p>
+          </div>
+        </div>
+
         <Heading1 title={"Pets Ready to Find a Home"} />
         <div
           className="adoptAdopt__petsCardContainer flexCenter"

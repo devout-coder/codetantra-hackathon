@@ -13,8 +13,10 @@ import Filebase from "react-file-base64";
 import { useRef, useState } from "react";
 import Heading1 from "../../../components/Heading1/Heading1";
 import InputField from "../../../components/InputField/InputField";
+import { useNavigate } from "react-router-dom";
 
 const PutUpAdoption = () => {
+  let navigate = useNavigate();
   function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
@@ -54,6 +56,19 @@ const PutUpAdoption = () => {
   return (
     <div className={`offWhiteBg superContainer`}>
       <div className="formContainer">
+        <div className="services__subTabsContainer flexCenter">
+          <div
+            className={` services__subTab`}
+            onClick={() => {
+              navigate("/adoption/adopt");
+            }}
+          >
+            <p>Adopt</p>
+          </div>
+          <div className={`services__subTab services__subTab__active`}>
+            <p>Post for Adoption</p>
+          </div>
+        </div>
         <Heading1 title={"Adopt"} />
         <p
           style={{

@@ -65,7 +65,7 @@ const Navbar = ({ whichActive }) => {
       >
         <div className={`${styles.linksText} navbar__links_superContainer`}>
           <div
-            className={`${styles.navbar__links_container} navbar__links_container`}
+            className={`${styles.navbar_links_container} navbar_links_container`}
             style={{
               display: "flex",
               flexDirection: "row",
@@ -111,7 +111,7 @@ const Navbar = ({ whichActive }) => {
             </a>
             {/* </Link> */}
 
-            {/* <a className="navbar__smallScreen__freeDemoClass">
+            {/* <a className="navbar_smallScreen_freeDemoClass">
               <p
                 style={{
                   width: "max-content",
@@ -140,7 +140,7 @@ const Navbar = ({ whichActive }) => {
           />
 
           {shouldShow && (
-            <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
+            <div className="app_navbar-smallscreen_overlay flex_center slide-bottom">
               <BiX
                 className="overlay__close"
                 onClick={() => setshouldShow(false)}
@@ -151,7 +151,7 @@ const Navbar = ({ whichActive }) => {
 
                navbar__links_container
 
-                navbar__links_container__smallscreen`}
+                navbar_links_container_smallscreen`}
                 style={{
                   display: "flex",
                   flexDirection: "column",
