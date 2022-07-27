@@ -757,3 +757,104 @@ Location card ka size here. */
 .adoptAdopt__petsCard_top {
   background: var(--primaryColor);
 }
+
+.choreCard {
+  background: var(--primaryColor);
+}
+
+.choreCard .pText {
+  font-size: x-large;
+  color: var(---offWhite);
+  padding: 0.5rem 1rem;
+}
+
+.choreCard .pTextSmall {
+  font-size: medium;
+  padding: 0 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.services__subTabsContainer {
+  flex-direction: row;
+}
+
+.services__subTabsContainer {
+  flex-direction: row;
+}
+
+.services__subTab {
+  margin-top: 1.5rem;
+  margin-right: 8px;
+  border: 3px solid var(--tertiaryColor);
+  padding: 0 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.services__subTab__active {
+  background: var(--tertiaryColor);
+}
+
+.locDetailsCard__container {
+  flex-direction: row;
+  width: 100%;
+  background: var(--tertiaryColor);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.locDetailsCard__left {
+  background: var(--primaryColor);
+  padding: 2.5rem 2rem;
+  height: 100%;
+  color: white;
+}
+
+.locDetailsCard__middle {
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+  padding-left: 2rem;
+  height: 100%;
+}
+
+.locDetailsCard__middle .pText {
+  margin-bottom: 0.5rem;
+  font-size: larger;
+  color: var(--primaryColor);
+  text-align: left;
+}
+
+.locDetailsCard__middle .pTextSmall {
+  margin-bottom: 4px;
+  font-size: medium;
+  color: var(--primaryColor);
+  text-align: left;
+}
+
+.locDetailsCard__right {
+  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.locDetailsCard__right p {
+  width: max-content;
+  padding: 0;
+  /* text-align: left; */
+}
+
+.iconContainer {
+  height: 100%;
+  color: var(--primaryColor);
+}
+
+.iconContainer p {
+  padding: 0;
+  margin: 0;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}

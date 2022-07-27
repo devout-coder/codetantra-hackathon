@@ -7,6 +7,7 @@ import AdoptAdoption from "./pages/Adoption/AdoptAdoption/AdoptAdoption";
 import ApplyVolunteer from "./pages/ApplyVolunteer/ApplyVolunteer";
 import FindVolunteer from "./pages/FindVolunteer/FindVolunteer";
 import PetProducts from "./pages/PetProducts/PetProducts";
+import Services from "./pages/Services/Services";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <Routes>
           <Route index element={<Landing />} />
+          <Route path="services" element={<Services />} />
           <Route path="adoption" element={<Adoption />}>
             <Route path="putup" element={<PutUpAdoption />} />
             <Route path="adopt" element={<AdoptAdoption />} />
