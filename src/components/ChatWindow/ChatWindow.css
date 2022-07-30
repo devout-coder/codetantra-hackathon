@@ -1,0 +1,156 @@
+.chatBackground::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.chatBackground {
+  /* filter: var(); */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.chatBackground {
+  /* background-color: rgba(0, 0, 0, 0.692); */
+  /* width: 1920px; */
+  /* height: 1080px; */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 5;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; */
+  bottom: 0;
+  left: 0;
+}
+
+.chat {
+  background: #fff7f7;
+  border-radius: 20px;
+  padding: 10px;
+  /* width: 750px; */
+  position: absolute;
+  /* height: 300px; */
+  animation-name: slideLeft;
+  /* right: 30vw; */
+  bottom: 1.5vw;
+  right: 1.5vw;
+  /* right: 5vw; */
+  animation-duration: 1s;
+}
+
+.removeChat {
+  animation-name: slideRight;
+  animation-duration: 1s;
+}
+
+@keyframes slideLeft {
+  0% {
+    right: -100vw;
+  }
+  100% {
+    right: 1.5vw;
+  }
+}
+@keyframes slideRight {
+  0% {
+    right: 1.5vw;
+  }
+  100% {
+    right: -100vw;
+  }
+}
+
+.messageCont {
+  width: 450px;
+}
+
+.message-input-container {
+  display: flex;
+  gap: 4px;
+}
+
+.message-input {
+  padding: 12px 8px;
+  flex: 1;
+  /* background: var(--color-gray); */
+  background: var(--secondaryColor);
+  border-radius: 5px;
+}
+
+.send-message {
+  /* padding: 0.5rem 2rem; */
+  /* padding: 12px 14px; */
+  background: var(--color-blue);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* .send-message {
+  height: min-content;
+} */
+
+button {
+  margin: 0;
+  padding: 0.5 1rem;
+  height: min-content;
+}
+
+input {
+  filter: var(--dropShadow);
+}
+
+.message-list-container {
+  margin-bottom: 16px;
+  flex: 1;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 300px;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.message-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  /* filter: var(); */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.message-list {
+  /* height: 300px; */
+  /* width: 450px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message {
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  /* background: var(--color-gray); */
+  background: var(--tertiaryColor);
+  border-radius: var(--border-radius);
+  text-align: left;
+}
+
+.own-message {
+  /* background: var(--color-blue); */
+  background: var(--secondaryColor);
+  align-self: flex-end;
+  text-align: right;
+}
+
+.sender {
+  margin-bottom: 8px;
+}

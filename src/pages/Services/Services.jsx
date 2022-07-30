@@ -1,67 +1,32 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-
 import Heading1 from "../../components/Heading1/Heading1";
-
+import Navbar from "../../components/Navbar/Navbar";
 import { FiPhoneCall } from "react-icons/fi";
-
 import { FaDirections } from "react-icons/fa";
 
-// import React from 'react'
-
-export const LocDetailsCard = ({ dist, name, loc, phone }) => {
+export const LocDetailsCard = ({ name, add, number, dist }) => {
   return (
-    <div
-      className="locDetailsCard__container roundCorner flexCenter"
-      style={{ overflow: "hidden", flexDirection: "row", width: "100%" }}
-    >
-      <div className="locDetailsCard__left flexCenter">
-        <p
-          style={{
-            padding: "0 2rem",
-          }}
-        >
-          {dist} away
-        </p>
-      </div>
-
-      <div className="locDetailsCard__middle flexCenter">
-        <p className="pText">{name}</p>
-        <p className="pTextSmall">Address: {loc}</p>
-        <p className="pTextSmall">Phone Number: {phone}</p>
-      </div>
-      <div
-        className="locDetailsCard__right flexCenter"
-        style={{
-          flexDirection: "row",
-        }}
-      >
-        <div
-          className="flexCenter"
-          style={{ justifyContent: "flex-end", height: "100%" }}
-        >
-          <FiPhoneCall fontSize={"1.5rem"} />
-          <p
-            style={{
-              margin: 0,
-              padding: 0,
-              width: "max-content",
-              margin: "8px 0",
-            }}
-          >
-            Call Now
+    <div className="locDetailsCardContainer flexCenter">
+      <div className="locDetailsCard__container roundCorner flexCenter dropShadow">
+        <div className="locDetailsCard__left flexCenter">
+          <p>
+            {dist}Km<br></br>away
           </p>
         </div>
-
-        <div
-          className="flexCenter"
-          style={{ justifyContent: "flex-end", height: "100%" }}
-        >
-          <FaDirections fontSize={"1.5rem"} />
-
-          <p style={{ margin: "8px 1rem", padding: 0, width: "max-content" }}>
-            Directions
-          </p>
+        <div className="locDetailsCard__middle flexCenter">
+          <p className="pText">{name}</p>
+          <p className="pTextSmall">Address: {add} </p>
+          <p className="pTextSmall">Phone Number: {number}</p>
+        </div>
+        <div className="locDetailsCard__right flexCenter">
+          <div className="flexCenter iconContainer">
+            <FiPhoneCall fontSize={"2rem"} />
+            <p>Call Now</p>
+          </div>
+          <div className="flexCenter iconContainer">
+            <FaDirections fontSize={"2rem"} />
+            <p>Directions</p>
+          </div>
         </div>
       </div>
     </div>
@@ -69,12 +34,7 @@ export const LocDetailsCard = ({ dist, name, loc, phone }) => {
 };
 
 const Services = () => {
-  const [selectedTab, setSelectedTab] = useState("vet");
-  function changeSelected() {
-    console.log("in vet select");
-    let temp = selectedTab == "vet" ? "med" : "vet";
-    setSelectedTab(temp);
-  }
+  const [selectedTab, setselectedTab] = useState("vet");
   return (
     <div>
       <Navbar whichActive={"services"} />
@@ -83,31 +43,67 @@ const Services = () => {
           <div className="services__subTabsContainer flexCenter">
             <div
               className={`services__subTab ${
-                selectedTab == "vet" && "services__subTab__active"
+                selectedTab == "vet" ? "services__subTab__active" : ""
               }`}
-              onClick={changeSelected}
+              onClick={() => {
+                let temp = selectedTab != "vet" ? "vet" : "med";
+                setselectedTab(temp);
+
+                console.log(selectedTab);
+                console.log("selected");
+              }}
             >
               <p>Veterinarians</p>
             </div>
             <div
+              onClick={() => {
+                let temp = selectedTab != "vet" ? "vet" : "med";
+                setselectedTab(temp);
+
+                console.log(selectedTab);
+                console.log("selected");
+              }}
               className={`services__subTab ${
-                selectedTab != "vet" && "services__subTab__active"
+                selectedTab != "vet" ? "services__subTab__active" : ""
               }`}
-              onClick={changeSelected}
             >
               <p>Medical Shops</p>
             </div>
           </div>
           {selectedTab == "vet" ? (
             <div>
-              <Heading1 title="Veterinarians" />
-              <div className="locDetailsCardContainer flexCenter">
-                <LocDetailsCard dist={0.7} name={"SuperPets"} />
-                <LocDetailsCard />
+              <div>
+                <Heading1 title={"Veterinarians"} />
               </div>
+              <LocDetailsCard
+                name={"SuperPets"}
+                dist={"0.7"}
+                add={
+                  "Chaman Commercial, Opp Andheri Recreation Club, Andheri West, Mumbai - 400058, Near Azad Nagar Metro Station"
+                }
+                number={"+91 343 5345 XXX"}
+              />
+              <LocDetailsCard
+                name={"Petie"}
+                dist={"0.4"}
+                add={
+                  "Chandansar Park, Opp Andheri Recreation Club, Andheri West, Mumbai - 400058, Near Azad Nagar Metro Station"
+                }
+                number={"+91 678 5345 XXX"}
+              />
             </div>
           ) : (
-            <Heading1 title="Medical Shops" />
+            <div>
+              <Heading1 title={"Medical Shops"} />
+              <LocDetailsCard
+                name={"Dog Medicine"}
+                dist={"0.7"}
+                add={
+                  "Chaman Commercial, Opp Andheri Recreation Club, Andheri West, Mumbai - 400058, Near Azad Nagar Metro Station"
+                }
+                number={"+91 343 5345 XXX"}
+              />
+            </div>
           )}
         </div>
       </div>

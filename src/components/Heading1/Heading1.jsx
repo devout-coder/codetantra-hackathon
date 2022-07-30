@@ -5,8 +5,8 @@ const Heading1 = ({ title }) => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        marginBottom: "2rem",
-        marginTop: "4rem",
+        marginBottom: "1rem",
+        marginTop: "2.5rem",
       }}
     >
       <div
@@ -20,12 +20,6 @@ const Heading1 = ({ title }) => {
             {title}
           </p>
         </div>
-        {/* <div
-          style={{
-            background: "black",
-            height: "2px",
-          }}
-        ></div> */}
       </div>
     </div>
   );

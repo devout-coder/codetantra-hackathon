@@ -9,9 +9,6 @@ const InputField = ({
   ph,
 }) => {
   const [phToTitle, setPhToTitle] = useState(ph);
-  const clickedScale = 0.9;
-  const normalScale = 1;
-  const pushDownBy = "-1.9rem";
   return (
     <div
       style={{
@@ -19,7 +16,7 @@ const InputField = ({
         justifyContent: "center",
         flexDirection: "column",
         position: "relative",
-        padding: "0 3rem",
+        marginBottom: "-1rem",
       }}
     >
       <p
@@ -29,8 +26,8 @@ const InputField = ({
           zIndex: "9",
           // textAlign: "center",
           position: "absolute",
-          top: "1rem",
-          left: "3.5rem",
+          top: "1.4rem",
+          left: "2.5rem",
         }}
         onClick={(e) => {
           if (
@@ -40,8 +37,8 @@ const InputField = ({
             setPhToTitle("About You");
           }
           gsap.to(labelRef.current, {
-            y: pushDownBy,
-            scale: clickedScale,
+            y: "-2.5rem",
+            scale: "1.2",
 
             duration: 0.1,
           });
@@ -61,8 +58,8 @@ const InputField = ({
           onClick={(e) => {
             setPhToTitle("About You");
             gsap.to(labelRef.current, {
-              y: pushDownBy,
-              scale: clickedScale,
+              y: "-2.5rem",
+              scale: "1.2",
 
               duration: 0.1,
             });
@@ -71,7 +68,7 @@ const InputField = ({
             if (e.target.value == "") {
               gsap.to(labelRef.current, {
                 y: "0",
-                scale: normalScale,
+                scale: "1",
 
                 duration: 0.1,
                 onComplete: () => {
@@ -98,7 +95,7 @@ const InputField = ({
 
               gsap.to(labelRef.current, {
                 y: "0",
-                scale: normalScale,
+                scale: "1",
 
                 duration: 0.1,
               });
@@ -106,8 +103,8 @@ const InputField = ({
           }}
           onClick={(e) => {
             gsap.to(labelRef.current, {
-              y: pushDownBy,
-              scale: clickedScale,
+              y: "-2.5rem",
+              scale: "1.2",
 
               duration: 0.1,
             });
@@ -122,10 +119,3 @@ const InputField = ({
 };
 
 export default InputField;
-
-{
-  /* <input type="tel" id="phone" name="phone" placeholder="1.2-45-678"
-  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
-  <small>Format: 1.2-45-678</small><br><br>
-  <input type="submit"></input> */
-}
